@@ -38,12 +38,13 @@ function fetchLocation(){
         let callAmbulance = document.querySelectorAll(".call")
         for (let i=0; i < callAmbulance.length; i++) {
           let text = callAmbulance[i].innerText
-          let combined = "Please, Send " + text + "at " + location
+          let combined = "Please send " + text + " at " + location
           let attachLocation = combined.replace(/ /g, "%20")
           let whatsappMsg = (`https://wa.me/${activeNumber}?text=${attachLocation}`)
           callAmbulance[i].href=whatsappMsg
           }
         
+        document.querySelector(".di").style.display = "block";
 
       });
   };
@@ -59,12 +60,14 @@ function fetchLocation(){
 
 
 
-let callAmbulance = document.querySelectorAll(".call")
+// let callAmbulance = document.querySelectorAll(".call")
 
-for (let i=0; i < callAmbulance.length; i++) {
-callAmbulance[i].addEventListener("click", fetchLocation)
-}
+// for (let i=0; i < callAmbulance.length; i++) {
+// callAmbulance[i].addEventListener("click", fetchLocation)
+// }
 
+let callAmbulance = document.querySelector(".initiate");
+callAmbulance.addEventListener("click", fetchLocation)
 
 
 
