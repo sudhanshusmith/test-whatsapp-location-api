@@ -16,7 +16,7 @@
 
 
 
-let activeNumber = 917870565464
+let activeNumber = 918824765780
 
 
 // Fetching User Address Sucessfully by using Open Cage Reverse Geocoding API
@@ -32,11 +32,15 @@ function fetchLocation(){
         // document.querySelector(".allow").innerText = data.results[0].formatted
 
         let location = data.results[0].formatted;
-        let attachLocation = location.replace(/ /g, "%20")
-        let whatsappMsg = (`https://wa.me/${activeNumber}?text=${attachLocation}`)
+        
+        
 
         let callAmbulance = document.querySelectorAll(".call")
         for (let i=0; i < callAmbulance.length; i++) {
+          let text = callAmbulance[i].innerText
+          let combined = "Please, Send " + text + "at " + location
+          let attachLocation = combined.replace(/ /g, "%20")
+          let whatsappMsg = (`https://wa.me/${activeNumber}?text=${attachLocation}`)
           callAmbulance[i].href=whatsappMsg
           }
         
